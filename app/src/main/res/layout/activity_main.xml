@@ -36,6 +36,6 @@
         android:backgroundTint="@color/colorPrimary"
         android:hapticFeedbackEnabled="false"
         android:fadingEdge="horizontal|vertical"
-        android:onClick="cancelD"/>
+        android:onClick="cancelD" />
 
 </LinearLayout>

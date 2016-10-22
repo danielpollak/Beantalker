@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_ACCESS_FINE_LOCATION = 1;
     private Bean current; // will be the bean that is connected out
     final List<Bean> beans = new ArrayList<>();
-    private ListIterator<Bean> beanz = beans.listIterator();
+//    private ListIterator<Bean> beanz = beans.listIterator();
     private Button scanButton; // cant have this here before its oncreate = (Button) findViewById(R.id.scanbutton);
 
 /*
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         final Button scanButton =  (Button) findViewById(R.id.scanbutton);
         scanButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                //cancels scan if needed
+                ListIterator<Bean> beanz = beans.listIterator();
                 if(mBluetoothAdapter == null) {
                     scanButton.setText("Bluetooth is not available on this device");
                 } else if(mBluetoothAdapter.isEnabled()) {
@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                             Bean temp = beanz.next();
                             setCurrent(temp);
 //                            setCurrent(beanz.next());
-
                             scanButton.setText(getCurrent().getDevice().getName());
                         } else
                             beanz = beans.listIterator(); // start over
@@ -104,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 if(beans.size() == 0)
                     return true;
                 else {
-                    beanz.previous();
                     connectToBeanNow();
                 }
                 return true;
