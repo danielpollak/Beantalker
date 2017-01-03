@@ -2,6 +2,7 @@
     <string name="app_name">Beantalker</string>
     <string name="searchForBeans">Search</string>
     <string name="cancelDiscover">Stop</string>
+    <string name="beanBattery">Battery</string>
 
 
 </resources>

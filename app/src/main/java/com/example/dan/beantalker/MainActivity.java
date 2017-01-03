@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.punchthrough.bean.sdk.*;
 import com.punchthrough.bean.sdk.message.BeanError;
+import com.punchthrough.bean.sdk.message.LedColor;
 import com.punchthrough.bean.sdk.message.ScratchBank;
 
 import java.util.Calendar;
@@ -93,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     scanButton.setText("Please enable bluetooth");
                 }
-                Log.d("DJP", getBeanz());
             }
         });
         // on long click, connect
@@ -163,7 +163,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onConnected() {
             if(current != null){
-                scanButton.setText("Connected to" + current.getDevice().getName());
+                scanButton = (Button) findViewById(R.id.scanbutton);
+                scanButton.setText("Connected to " + current.getDevice().getName());
             } else
                 return;
         }
@@ -171,7 +172,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onConnectionFailed() {
             if(current != null){
-                scanButton.setText("Failed to connect to" + current.getDevice().getName());
+                scanButton = (Button) findViewById(R.id.scanbutton);
+                scanButton.setText("Failed to connect to " + current.getDevice().getName());
                 //wait, then put back to scan maybe
             } else
                 return;
@@ -181,7 +183,8 @@ public class MainActivity extends AppCompatActivity {
         public void onDisconnected() {
             //set bean info to null
             if(current != null){
-                scanButton.setText("Disconnected from" + current.getDevice().getName().toString());
+                scanButton = (Button) findViewById(R.id.scanbutton);
+                scanButton.setText("Disconnected from " + current.getDevice().getName().toString());
                 current = null;
             } else
                 return;
@@ -190,40 +193,44 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSerialMessageReceived(byte[] data) {
             //doesn't matter what byte data is now
-            current.sendSerialMessage(convertTime());
         }
 
         @Override
         public void onScratchValueChanged(ScratchBank bank, byte[] value) {
-
+            if(bank == ScratchBank.BANK_2){
+                Calendar c = Calendar.getInstance();
+                byte[] buffer=convertTime();
+                current.setScratchData(ScratchBank.BANK_1, buffer); // will be bank1
+                Log.d("DJP", "HOUR, MINUTE, AMPM: " + buffer[0] + "\t" + buffer[1]  + "\t" + buffer[2]);
+//              Log.d("DJP", current.readScratchData());
+            }
         }
-
         @Override
         public void onError(BeanError error) {
 
         }
-
         @Override
         public void onReadRemoteRssi(int rssi) {
 
         }
     };
 
-    private byte[] convertTime(){
+    public byte[] convertTime(){
         //hours, minutes, seconds, ampm
-        byte [] buffer = new byte [5];
+        byte [] buffer = new byte [3/*5*/];
         Calendar c = Calendar.getInstance();
         buffer[0] = (byte) ((c.get(Calendar.HOUR)) & (0xFF));
-        buffer[1] = (byte) ((c.get(Calendar.HOUR) >> 8) & 0xFF);
-        buffer[2] = (byte) ((c.get(Calendar.MINUTE)) & (0xFF));
-        buffer[3] = (byte) ((c.get(Calendar.SECOND)) & (0xFF));
-        buffer[4] = (byte) ((c.get(Calendar.AM_PM)) & (0xFF));
+        buffer[1] = (byte) ((c.get(Calendar.MINUTE)) & (0xFF));
+        buffer[2] = (byte) ((c.get(Calendar.AM_PM)) & (0xFF));
         return buffer;
     }
     public void cancelD(View view){
-        Log.d("DJP", getBeanz());
         BeanManager.getInstance().cancelDiscovery();
         scanButton = (Button) findViewById(R.id.scanbutton);
         scanButton.setText("Beans available");
+    }
+    public void getBeanBattery(View view){
+        Button batbut = (Button) findViewById(R.id.battery);
+//        batbut.setText(current.readBatteryLevel());
     }
 }
