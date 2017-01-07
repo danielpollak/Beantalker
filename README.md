@@ -13,8 +13,39 @@ The beantalker app is in the folder named, conveniently, hamdanspam/Beantalker/b
 I knitted a little case for my bean and enclosed my bean on top of a cheap watch strap seen here:
 <img src="http://www.thinkgeek.com/images/products/frontsquare/imnl_tesla_watch.jpg">
 
+Rotate your wrist to the left, pause, rotate to the right, pause, and rotate to the left again. This activates communication between your phone and the bean, and the bean parses time data from the phone in the following way:
+
 ### Hours
-The led flashes in one color for however many hours it is
+<table>
+  <tr>
+    <th>W</th><td>  </td><td>+0</td>
+  </tr>
+  <tr>
+    <th>R</th><td>+0</td><td>+1</td>
+  </tr>
+  <tr>
+    <th>G</th><td>+4</td><td>+2</td>
+  </tr>
+  <tr>
+    <th>B</th><td>+8</td><td>+3</td>
+  </tr>
+</table>
 
 ### Minutes
-The led flashes in another color for however many minutes it is. I'm going to come up with a better plan eventually. Don't even sweat it.
+<table>
+  <tr>
+    <th>P</th><td>+0 </td><td>  </td><td>  </td>
+  </tr>
+  <tr>
+    <th>W</th><td>+12</td><td>  </td><td>+0</td>
+  </tr>
+  <tr>
+    <th>R</th><td>+24</td><td>+0</td><td>+1</td>
+  </tr>
+  <tr>
+    <th>G</th><td>+36</td><td>+4</td><td>+2</td>
+  </tr>
+  <tr>
+    <th>B</th><td>+48</td><td>+8</td><td>+3</td>
+  </tr>
+</table>
