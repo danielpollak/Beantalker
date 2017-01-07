@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sdk-2.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.punchthrough.bean.sdk/sdk/2.0.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.punchthrough.bean.sdk/sdk/2.0.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.punchthrough.bean.sdk/sdk/2.0.0/1355f8e5792a9b6082dd0ba474627a5d06f036ac/sdk-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
