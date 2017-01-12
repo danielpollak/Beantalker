@@ -118,10 +118,8 @@ public class MainActivity extends AppCompatActivity {
         });
         //Now, just hide setpin field until it is needed
         findViewById(R.id.setBeanPinEditText).setVisibility(GONE);
-
+        findViewById(R.id.beanPinButton).setVisibility(GONE);
     }
-
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -150,7 +148,9 @@ public class MainActivity extends AppCompatActivity {
     }
     private  void connectToBeanNow() {
     	//assumes beans is not empty
+        Log.d("DJP", "connecting to bean");
         current.connect(this, beanListener);
+
     }
 
     private void setCurrent(Bean thenext){current = thenext;}
@@ -178,16 +178,19 @@ public class MainActivity extends AppCompatActivity {
             if(current != null){
                 scanButton = (Button) findViewById(R.id.scanbutton);
                 scanButton.setText("Connected to " + current.getDevice().getName());
+                Log.d("DJP", "connected to" + current.getDevice().getName());
             } else
                 return;
         }
 
         @Override
         public void onConnectionFailed() {
+            current.disconnect(); // see if this helps
             if(current != null){
                 scanButton = (Button) findViewById(R.id.scanbutton);
                 scanButton.setText("Failed to connect to " + current.getDevice().getName());
-                //wait, then put back to scan maybe
+                Log.d("DJP", "failed to connect, retrying...");
+                connectToBeanNow();
             } else
                 return;
         }
@@ -218,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onError(BeanError error) {
+
             Log.d("DJP", error.toString());
             if(current != null){
                 scanButton = (Button) findViewById(R.id.scanbutton);
@@ -225,8 +229,6 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     connectToBeanNow();
                 }catch(Exception e){
-//                    Handler h = new Handler();
-//                    h.postDelayed(new ViewUpdater(e.getLocalizedMessage().toString(), scanButton), 1000);
                     // TODO: make an invisible view that shows errors only when there is an error.
                 }
                 scanButton.setText("Beans available");
@@ -239,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
 
     public byte[] convertTime(){
         //hours, minutes, seconds, ampm
-        byte [] buffer = new byte [3/*5*/];
+        byte [] buffer = new byte [3];
         Calendar c = Calendar.getInstance();
         buffer[0] = (byte) ((c.get(Calendar.HOUR)) & (0xFF));
         buffer[1] = (byte) ((c.get(Calendar.MINUTE)) & (0xFF));
@@ -255,19 +257,35 @@ public class MainActivity extends AppCompatActivity {
             current = null;
         }
     }
+
+    int count = 0;
     public void getBeanBattery(View view){
+        Log.d("DJP", "battery request");
+        Button batbut = (Button) findViewById(R.id.battery);
         if(current != null){
-            current.readBatteryLevel(new Callback<BatteryLevel>() {
-                @Override
-                public void onResult(BatteryLevel result) {
-                    Button batbut = (Button) findViewById(R.id.battery);
-                    Log.d("DJP", result.getPercentage() + "%");
-                    batbut.setText(result.getPercentage() + "%, " + result.getVoltage() + "V");
-//                    Handler handler = new Handler();
-//                    handler.postDelayed(new ViewUpdater(result.getPercentage() + "%", batbut), 1000);
-//                    handler.postDelayed(new ViewUpdater(result.getVoltage() + "V", batbut), 2000);
-                }
-            });
+            if(count == 0){
+                current.readBatteryLevel(new Callback<BatteryLevel>() {
+                    @Override
+                    public void onResult(BatteryLevel result) {
+                        Button batbut = (Button) findViewById(R.id.battery);
+                        Log.d("DJP", result.getPercentage() + "%");
+                        batbut.setText(result.getPercentage() + "%");
+
+                    }
+                });
+            }else if(count == 1){
+                current.readBatteryLevel(new Callback<BatteryLevel>() {
+                    @Override
+                    public void onResult(BatteryLevel result) {
+                        Button batbut = (Button) findViewById(R.id.battery);
+                        Log.d("DJP", result.getVoltage() + "V");
+                        batbut.setText(result.getVoltage() + "V");
+                    }
+                });
+            } else {
+                batbut.setText(R.string.beanBattery);
+            }
+            count = (count+1) % 3; // 0,  1, 2, 0, 1, 2
         }
     }
 
@@ -296,20 +314,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+    @Override
+    public void onDestroy(){
+        if(current != null) {
+            current.disconnect();
+            current = null;
+        }
+    }
 
-//    private class ViewUpdater implements Runnable{
-//    TODO: get this working.
-//        private String mString;
-//        private Button mB;
-//
-//        public ViewUpdater(String string, Button mb){
-//            mString = string;
-//            mB = mb;
-//        }
-//
-//        @Override
-//        public void run() {
-//            mB.setText(mString);
-//        }
-//    }
 }

@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="386c321ea9be060a340e5a0a0e7cc547e6eb0003">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_43d4d6f89e959c4a768d54d1cb6585ead8bf7578/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -18,6 +27,33 @@
         revision="24.0.3"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
         <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_64026c9ba2a3b40aa19dd82df30f9fe12152877a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dan/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_bfe85671afde55c85f1c2c0199f645ff066c1c66/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_714edb0207ef5cad2e0c27cad0827d3b51d5b4a7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7883cb11b81d4b3d455dd936142d3fb7afd1808f">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ac4898fa775111f47db20abbe3b2e78381a1c272/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,6 +75,42 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_72fa15a7c5a32d154a85465bfb5df53ee9941653/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_5d8d3fd724af065e666a59fbbcd7701b9c862dff/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_ace5bc29b3cc316f7ca2139613c4f775b6fde2d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_2b6d4e03d933a3b2937a434061f137d904f63fd9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -54,6 +126,15 @@
         revision="24.0.3"
         sha1="d28e477be0a5a3f8fc6770310868528563c3fd37">
         <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/auto-parcel-0.2_fc317c58f332f1aa671eba9cd31b259b7a8f1fd9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/dan/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.0/2534c458682c73f5b9871131ab3098d3f987ca3/okio-1.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="02534c458682c73f5b9871131ab3098d3f987ca3">
+        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.0.0_5bd5e1f11b37856b7dd5a21a00666eeeef12dd67/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -99,87 +180,6 @@
         revision="24.0.3"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
         <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_efe067abd0f5d3cefb5514e4c9ca6ada4f60f092/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="958fb8236fb23b5571059e61e057782604268ab8">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_43d4d6f89e959c4a768d54d1cb6585ead8bf7578/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_bfe85671afde55c85f1c2c0199f645ff066c1c66/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_714edb0207ef5cad2e0c27cad0827d3b51d5b4a7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="4ae2abe383dc68acba207dd7d580e92453d19a6a">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ac4898fa775111f47db20abbe3b2e78381a1c272/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_72fa15a7c5a32d154a85465bfb5df53ee9941653/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_5d8d3fd724af065e666a59fbbcd7701b9c862dff/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_ace5bc29b3cc316f7ca2139613c4f775b6fde2d0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_2b6d4e03d933a3b2937a434061f137d904f63fd9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/dan/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.0/2534c458682c73f5b9871131ab3098d3f987ca3/okio-1.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="02534c458682c73f5b9871131ab3098d3f987ca3">
-        <dex dex="/home/dan/Documents/android-apps/Beantalker/beantalker/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.0.0_5bd5e1f11b37856b7dd5a21a00666eeeef12dd67/classes.dex" />
     </item>
     <item
         is-multidex="true"

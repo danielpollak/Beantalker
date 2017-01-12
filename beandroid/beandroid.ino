@@ -62,8 +62,8 @@ void getTime(){
     Bean.setLed(r * brightconst, g * brightconst, b * brightconst);
     Bean.sleep(500);
     if(m2 == 0)     {r=1; g=1; b=1;}  // W
-    else if(m2 == 1){r=0; g=1; b=0;}  // R
-    else            {r=0; g=0; b=1;}  // G
+    else if(m2 == 1){r=1; g=0; b=0;}  // R
+    else            {r=0; g=1; b=0;}  // G
     Bean.setLed(r * brightconst, g * brightconst, b * brightconst);
     Bean.sleep(500);
     if(m3 == 0)     {r=1; g=1; b=1;}  // W
@@ -88,7 +88,7 @@ void passGest(){
         // if it's changed, but to the wrong thing
         //can be upright
         heard = listen();
-        if(heard == 'u' || heard == 'z' || (i == 0 && heard != passSequence[i]) ||heard == passSequence[i-1]) {
+        if(heard == 'u' || heard == 'z' || (i == 0 && heard != passSequence[i]) || heard == passSequence[i-1]) {
             i--;
         } else if(heard == passSequence[i]) {
 //            Bean.setLed(0, 0, 100);
