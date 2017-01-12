@@ -13,12 +13,6 @@
     android:backgroundTint="@android:color/darker_gray"
     android:background="@color/colorPrimary">
     <Button
-        android:id="@+id/sprocket"
-        android:text="test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="convertTime"/>
-    <Button
         android:id="@+id/scanbutton"
         android:text="@string/searchForBeans"
         android:layout_width="wrap_content"
@@ -55,4 +49,24 @@
         android:hapticFeedbackEnabled="false"
         android:fadingEdge="horizontal|vertical"
         android:onClick="getBeanBattery" />
+
+    <Button
+        android:id="@+id/beanPinButton"
+        android:text="@string/setBeanPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:elevation="0dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:hapticFeedbackEnabled="true"
+        android:fadingEdge="horizontal|vertical" />
+        <!--android:onClick="setBeanPin" /> HERES THE ISSUE: WILL i HAVE TO REMEMBER THE PIN EVERY TIME? AND INPUT IT? i DON'T WANT TO DO THAT. NOW.-->
+
+    <EditText
+        android:id="@+id/setBeanPinEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/setBeanPin"
+        android:inputType="numberPassword"
+        android:imeOptions="actionDone"/>
 </LinearLayout>

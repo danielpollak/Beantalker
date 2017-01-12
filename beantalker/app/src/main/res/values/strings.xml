@@ -3,6 +3,8 @@
     <string name="searchForBeans">Search</string>
     <string name="cancelDiscover">Stop</string>
     <string name="beanBattery">Battery</string>
+    <string name="test">test</string>
+    <string name="setBeanPin">Set bean pin</string>
 
 
 </resources>

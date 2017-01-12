@@ -3,17 +3,23 @@ package com.example.dan.beantalker;
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.content.pm.PackageManager;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.punchthrough.bean.sdk.*;
+import com.punchthrough.bean.sdk.message.BatteryLevel;
 import com.punchthrough.bean.sdk.message.BeanError;
-import com.punchthrough.bean.sdk.message.LedColor;
+import com.punchthrough.bean.sdk.message.Callback;
 import com.punchthrough.bean.sdk.message.ScratchBank;
 
 import java.util.Calendar;
@@ -21,6 +27,8 @@ import java.util.Calendar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+
+import static android.view.View.GONE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
  * give it differential functionalities based on a button click.
  * boom its a watch, boom its a key, etc etc
  * */
-    private String getBeanz(){
-        String out ="";
-        for(Bean elem: beans){
-            out += "\n" + elem.getDevice().getName();
-        }
-        return out;
-    }
+//    private String getBeanz(){
+//        String out = "";
+//        for(Bean elem: beans){
+//            out += "\n" + elem.getDevice().getName();
+//        }
+//        return out;
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +116,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        //Now, just hide setpin field until it is needed
+        findViewById(R.id.setBeanPinEditText).setVisibility(GONE);
+
     }
+
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
@@ -146,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBeanDiscovered(Bean bean, int rssi) {
             beans.add(bean);
-            Log.d("DJP", "found bean, can cancel now");
         }
 
         @Override
@@ -191,9 +204,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onSerialMessageReceived(byte[] data) {
-            //doesn't matter what byte data is now
-        }
+        public void onSerialMessageReceived(byte[] data) {}
 
         @Override
         public void onScratchValueChanged(ScratchBank bank, byte[] value) {
@@ -202,16 +213,27 @@ public class MainActivity extends AppCompatActivity {
                 byte[] buffer=convertTime();
                 current.setScratchData(ScratchBank.BANK_1, buffer); // will be bank1
                 Log.d("DJP", "HOUR, MINUTE, AMPM: " + buffer[0] + "\t" + buffer[1]  + "\t" + buffer[2]);
-//              Log.d("DJP", current.readScratchData());
+            }
+        }
+
+        @Override
+        public void onError(BeanError error) {
+            Log.d("DJP", error.toString());
+            if(current != null){
+                scanButton = (Button) findViewById(R.id.scanbutton);
+                scanButton.setText("error, trying to reconnect to " + current.getDevice().getName().toString());
+                try{
+                    connectToBeanNow();
+                }catch(Exception e){
+//                    Handler h = new Handler();
+//                    h.postDelayed(new ViewUpdater(e.getLocalizedMessage().toString(), scanButton), 1000);
+                    // TODO: make an invisible view that shows errors only when there is an error.
+                }
+                scanButton.setText("Beans available");
             }
         }
         @Override
-        public void onError(BeanError error) {
-
-        }
-        @Override
         public void onReadRemoteRssi(int rssi) {
-
         }
     };
 
@@ -228,9 +250,66 @@ public class MainActivity extends AppCompatActivity {
         BeanManager.getInstance().cancelDiscovery();
         scanButton = (Button) findViewById(R.id.scanbutton);
         scanButton.setText("Beans available");
+        if(current != null){
+            current.disconnect();
+            current = null;
+        }
     }
     public void getBeanBattery(View view){
-        Button batbut = (Button) findViewById(R.id.battery);
-//        batbut.setText(current.readBatteryLevel());
+        if(current != null){
+            current.readBatteryLevel(new Callback<BatteryLevel>() {
+                @Override
+                public void onResult(BatteryLevel result) {
+                    Button batbut = (Button) findViewById(R.id.battery);
+                    Log.d("DJP", result.getPercentage() + "%");
+                    batbut.setText(result.getPercentage() + "%, " + result.getVoltage() + "V");
+//                    Handler handler = new Handler();
+//                    handler.postDelayed(new ViewUpdater(result.getPercentage() + "%", batbut), 1000);
+//                    handler.postDelayed(new ViewUpdater(result.getVoltage() + "V", batbut), 2000);
+                }
+            });
+        }
     }
+
+    public void setBeanPin(View view){
+        // TODO: Decide if the security is worth it.
+        if(current != null){
+            EditText et = (EditText) findViewById(R.id.setBeanPinEditText);
+            et.setVisibility(View.VISIBLE);
+            et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                int newPin = 0;
+
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    boolean handled = false;
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+//                        newPin = sth.getText();
+                        handled = true;
+                    }
+
+                    if(newPin != 0){
+//                        current.setPin(newPin, );
+                    }
+                    return handled;
+                }
+            });
+
+        }
+    }
+
+//    private class ViewUpdater implements Runnable{
+//    TODO: get this working.
+//        private String mString;
+//        private Button mB;
+//
+//        public ViewUpdater(String string, Button mb){
+//            mString = string;
+//            mB = mb;
+//        }
+//
+//        @Override
+//        public void run() {
+//            mB.setText(mString);
+//        }
+//    }
 }
