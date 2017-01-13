@@ -39,8 +39,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dan/beantalker/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="192" column="29" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
+            <state relative-caret-position="96">
+              <caret line="193" column="18" selection-start-line="193" selection-start-column="18" selection-end-line="193" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onRequestPermissionsResult#0;class#MainActivity#0" expanded="false" />
@@ -2414,8 +2414,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/dan/beantalker/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="192" column="29" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
+        <state relative-caret-position="96">
+          <caret line="193" column="18" selection-start-line="193" selection-start-column="18" selection-end-line="193" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onRequestPermissionsResult#0;class#MainActivity#0" expanded="false" />

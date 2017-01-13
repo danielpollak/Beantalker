@@ -1,25 +1,21 @@
-//samples per listen 
-#define samples 1 // at 20 Hz, 50ms sleep
-//threshold for directionality
+#define brightconst 200
+#define samples 1
 #define thres 200
-#define brightconst 150
-
-
-
 AccelerationReading accel;
 int alx[samples+1] = {0}; // samples + 1
 int aly[samples+1] = {0}; // 10 + 1
 int alz[samples+1] = {0}; // 11
 
-
-// this is the mutable sequence
-#define passSeqSize 2
-char passSequence[passSeqSize] = {'a', 'f'};
-
 void setup() {
-    while(true){
-      passGest();
-    }
+  uint8_t mode;
+  Bean.accelRegisterRead(REG_POWER_MODE_X11, 1, &mode);
+  if (mode != VALUE_LOW_POWER_10MS) 
+  {
+    Bean.accelRegisterWrite(REG_POWER_MODE_X11, VALUE_LOW_POWER_10MS);
+  }
+
+  Bean.enableMotionEvent(DOUBLE_TAP_EVENT);
+//  Bean.enableWakeOnConnect(true); //not needed,
 }
 
 void getTime(){
@@ -75,45 +71,21 @@ void getTime(){
     Bean.setLed(r * brightconst, g * brightconst, b * brightconst);
     Bean.sleep(500);
     Bean.setLed(0, 0, 0);
-  } //no else: no connection
+  } else {
+    Bean.setLedRed(50);
+    Bean.sleep(75);
+    Bean.setLedRed(0);
+  }
 
 }
 
-//method for actually unlocking I could also copy the code into loop, that would do the trick
-void passGest(){
-    char heard;
-    
-    for(int i = 0; i < passSeqSize; i++){
-        //heard = listen();
-        //wait for current change
-        //while(listen() == heard){}
-        // if it's changed, but to the wrong thing
-        //can be upright
-        heard = listen();
-        if(heard == 'u' || heard == 'z' || (i == 0 && heard != passSequence[i]) || heard == passSequence[i-1]) {
-            i--;
-        } else if(heard == passSequence[i]) {
-//            Bean.setLed(0, 0, 100);
-            Bean.sleep(100);
-//            Bean.setLed(0, 0, 0);
-            continue;
-        } else {
-            // resetting.
-            i = 0;
-//            Bean.setLed(100, 0, 0);
-            Bean.sleep(100);
-//            Bean.setLed(0, 0, 0);
-        }
-    // else, will just continue
-    }
-    getTime();
-}
 void loop() {
-//    passGuest();
+  getTime();
+  Bean.sleep(0xFFFFFFFF);
 }
 
 char listen(){
-    accel = Bean.getAcceleration();
+    AccelerationReading accel = Bean.getAcceleration();
     for(int i=0; i<samples; i++){
         alx[i] = accel.xAxis;
         aly[i] = accel.yAxis;
