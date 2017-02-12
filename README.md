@@ -13,11 +13,13 @@ The beantalker app is in the folder named, conveniently, hamdanspam/Beantalker/b
 I knitted a little case for my bean and enclosed my bean with it around an extremely cheap [perlon](http://www.primermagazine.com/2016/spend/a-comprehensive-guide-to-watch-straps) watch strap seen here:
 
 <img src="https://github.com/hamdanspam/Beantalker/blob/master/img1.jpg" width=350>
-<img src="https://github.com/hamdanspam/Beantalker/blob/master/img2.jpg" width=350>
 <img src="https://github.com/hamdanspam/Beantalker/blob/master/img3.jpg" width=350>
-<img src="https://github.com/hamdanspam/Beantalker/blob/master/img4.jpg" width=350>
 
 I don't know knitting lingo too well, but I used 2 mm double sided needles, casted on 9 stitches (I shoulda used less, use 7 or 8.), and knitted it in the round for a good 10 rows, then switched to normal knitting, allowing me to go from a tube shape to a flat shape, which is exactly what I needed to secure the bean to the watch strap with buttons. I realized early on that I could get away with knitting in the round with only two needles, which seemed apocryphal at the time but the end product was more just better knitting overall, so I highly recommend it. Use relatively thin yarn, this is about where my knowledge of knitting fails me for more precise instructions.
+
+Or, you could go with this, my later and currently final prototype. It was a simple round-knitted 8-stitch piece barely long enough to cover the whole bean. You can add a little hole for the RGB led if you want, but it should shine through. I'm pretty happy with it.
+
+<img src="https://github.com/hamdanspam/Beantalker/blob/master/20170212_012304.jpg" width=350>
 
 Rotate your wrist to the left, rotate to the right. Alternatively, install the beanTap.ino sketch for a double tap. A rotation or double tap activates communication between your phone and the bean, and the bean parses time data from the phone and displays it as a set of blinks in the following way:
 
