@@ -1,4 +1,4 @@
-#define brightconst 200
+#define brightconst 20
 #define samples 1
 #define thres 200
 AccelerationReading accel;
@@ -31,12 +31,12 @@ void getTime(){
     int h = scratch.data[0];
     int h1 = h / 4; // can be 0, 1, 2
     int h2 = (h - h1 * 4) / 1; // can be 0, 1, 2, 3
-    if(h1 == 0)     {r=1; g=1; b=1;}
+    if(h1 == 0)     {r=1; g=1; b=0;} //instead of white (1, 1, 1), we will do yellow
     else if(h1 == 1){r=1; g=0; b=0;}
     else            {r=0; g=1; b=0;}
     Bean.setLed(r * brightconst, g * brightconst, b * brightconst);
     Bean.sleep(500);
-    if(h2 == 0)     {r=1; g=1; b=1;}
+    if(h2 == 0)     {r=1; g=1; b=0;} // instead of white (1, 1, 1), we will do yellow
     else if(h2 == 1){r=1; g=0; b=0;}
     else if(h2 == 2){r=0; g=1; b=0;}
     else            {r=0; g=0; b=1;}
@@ -52,19 +52,19 @@ void getTime(){
     int m1 = m / 12; // m1 = 57 / 12 = 4
     int m2 = (m-m1*12)/4; // m2 = (57 - 48)/4 = 9/4 = 2
     int m3 = (m-m1*12-m2*4)/1; // m3 = (57 - 48 - 8)/1 = 1/1 = 1
-    if(m1 == 0)     {r=1; g=1; b=1;}  // W
+    if(m1 == 0)     {r=1; g=1; b=0;}  // W
     else if(m1 == 1){r=1; g=0; b=0;}  // R
     else if(m1 == 2){r=0; g=1; b=0;}  // G
     else if(m1 == 3){r=0; g=0; b=1;}  // B
     else            {r=1; g=0; b=1;}  // P
     Bean.setLed(r * brightconst, g * brightconst, b * brightconst);
     Bean.sleep(500);
-    if(m2 == 0)     {r=1; g=1; b=1;}  // W
+    if(m2 == 0)     {r=1; g=1; b=0;}  // W
     else if(m2 == 1){r=1; g=0; b=0;}  // R
     else            {r=0; g=1; b=0;}  // G
     Bean.setLed(r * brightconst, g * brightconst, b * brightconst);
     Bean.sleep(500);
-    if(m3 == 0)     {r=1; g=1; b=1;}  // W
+    if(m3 == 0)     {r=1; g=1; b=0;}  // W
     else if(m3 == 1){r=1; g=0; b=0;}  // R
     else if(m3 == 2){r=0; g=1; b=0;}  // G
     else            {r=0; g=0; b=1;}  // B
