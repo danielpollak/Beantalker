@@ -2,11 +2,11 @@
 Little app that can communicate with LightBlue Beans. Pairing with Android allows the bean to become a smartwatch or (coming soon!) an infrared remote. Or both.
 
 
-## Arduino
-Upload to the LightBlue Bean the beandroid.ino sketch in hamdanspam/Beantalker/beandroid/.
+## Arduino sketch
+Upload to the LightBlue Bean the beanTap.ino sketch. Alternatively, use the beandroid.ino sketch for a rather innovative accelerometer-driven gesture reader.
 
 
-## Android
+## Android app
 The beantalker app is in the folder named, conveniently, hamdanspam/Beantalker/beantalker. You can load it in android studio and upload it to your phone from there, or use any other programmer available.
 
 ## How to use it
@@ -21,7 +21,9 @@ Or, you could go with this, my later and currently final prototype. It was a sim
 
 <img src="https://github.com/hamdanspam/Beantalker/blob/master/20170212_012304.jpg" width=350>
 
-Rotate your wrist to the left, rotate to the right. Alternatively, install the beanTap.ino sketch for a double tap. A rotation or double tap activates communication between your phone and the bean, and the bean parses time data from the phone and displays it as a set of blinks in the following way:
+Install the beanTap.ino sketch for a double tap to get the time. Alternatively, install beandroid.ino, and rotate your wrist to the left, rotate to the right, and then read the time. The code is quite modular, so feel free to add your own "combination lock" type sequence of gestures.
+
+Rotation or double tap activates communication between your phone and the bean, and the bean parses time data from the phone and displays it as a set of blinks in the following way:
 
 ### Hours
 <table>
